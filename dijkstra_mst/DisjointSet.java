@@ -4,6 +4,23 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Data structure to check points are connected efficiently.
+ * 3 -> 2, 2 -> 1 equals to 3 - 2 - 1 (all connected)
+ *     1          
+ *    /                2
+ *   2       vs       / \
+ *  /                3   1  
+ * 3            (more efficient)
+ * 
+ * Add graph in the form of tree
+ * by tracking parent pointers & rank. 
+ * 
+ * Worst case: LogN (balanced binary tree form)
+ * Reference: https://www.geeksforgeeks.org/disjoint-set-data-structures/ 
+ * 
+ * @author Sunny Park
+ */
 public class DisjointSet {
     int[] parent;
     int[] rank;
@@ -40,10 +57,10 @@ public class DisjointSet {
         
         // update parent
         if (rank[parentV] > rank[parentW]) {
-            parent[w] = parentV;
+            // parent[w] = parentV;
             parent[parentW] = parentV;
         } else {
-            parent[v] = parentW;
+            // parent[v] = parentW;
             parent[parentV] = parentW;
         }
         
