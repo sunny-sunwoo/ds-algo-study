@@ -1,5 +1,6 @@
 package ds_algo_study.dijkstra_mst;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -32,24 +33,30 @@ public class DisjointSet {
     }
     
     public DisjointSet merge(int v, int w) {
-        if (parent[v] == parent[w]) return this;
-        
         int parentV = find(v);
         int parentW = find(w);
+        
+        if (parentV == parentW) return this;
         
         // update parent
         if (rank[parentV] > rank[parentW]) {
             parent[w] = parentV;
+            parent[parentW] = parentV;
         } else {
             parent[v] = parentW;
+            parent[parentV] = parentW;
         }
         
         // update rank
-        if (rank[v] == rank[w]) {
-            rank[w]++;
+        if (rank[parentV] == rank[parentW]) {
+            rank[parentW]++;
         }
         
         return this;
-
+    }
+    
+    @Override
+    public String toString() {
+        return "Parent: " + Arrays.toString(parent) + "\n Rank: " + Arrays.toString(rank);
     }
 }

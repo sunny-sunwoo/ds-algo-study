@@ -1,5 +1,6 @@
 package ds_algo_study.dijkstra_mst.disjointSet;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,12 +34,20 @@ public class IslandNumTracker {
                 }
             }
         }
-        System.out.println(islandNumber);
+    }
+    
+    public List<Integer> numIslands2(int[][] positions) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] position : positions) {
+            result.add(addIsland(position[0], position[1]));
+        }
+        return result;
     }
     
     public int addIsland(int row, int col) {
+        System.out.println(row + " //  " + col);
         Point curr = Point.of(row, col);
-//        if (grid[curr.y][curr.x] == 1) return islandNumber;
+        if (grid[curr.y][curr.x] == 1) return islandNumber;
         
         grid[curr.y][curr.x] = 1;
         islandNumber++;
@@ -56,6 +65,12 @@ public class IslandNumTracker {
                 ds.merge(currPoint, neighborPoint);
                 islandNumber--;
             }
+        }
+        
+        // print out the status for test.
+        System.out.println(ds);
+        for (int[] each : grid) {
+            System.out.println(Arrays.toString(each));
         }
         return islandNumber;
     }
@@ -97,13 +112,20 @@ public class IslandNumTracker {
             if (y < 0 || x < 0) return false;
             return (y < yBound) && (x < xBound);
         }
+        
+        @Override
+        public String toString() {
+            return y + ", " + x;
+        }
     }
     
     public static void main(String[] args) {
-        int[][] grid = {{0, 1, 0, 0}, {1, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        int[][] positions = {{0,1},{1,2},{2,1},{1,0},{0,2},{0,0},{1,1}};
+//        int[][] grid = {{1, 1, 1}, {1, 0, 1}, {0, 1, 0}};
+        int[][] grid = new int[3][3];
         IslandNumTracker tracker = new IslandNumTracker(grid);
-        System.out.println(tracker.addIsland(1, 1));
-        System.out.println(tracker);
+//        System.out.println(tracker.addIsland(1, 1));
+        System.out.println(tracker.numIslands2(positions));
     }
     
 }
