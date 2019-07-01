@@ -1,4 +1,4 @@
-package ds_algo_study.dijkstra_mst.disjointSet;
+package ds_algo_study.graph.disjointSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import ds_algo_study.dijkstra_mst.DisjointSet;
+import ds_algo_study.graph.DisjointSet;
 
 /**
  * Q) find circle num. 

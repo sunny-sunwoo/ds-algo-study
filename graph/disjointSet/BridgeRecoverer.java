@@ -1,9 +1,10 @@
-package ds_algo_study.dijkstra_mst.disjointSet;
+package ds_algo_study.graph.disjointSet;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import ds_algo_study.dijkstra_mst.DisjointSet;
+import ds_algo_study.graph.DisjointSet;
+
 
 public class BridgeRecoverer {
     private final DisjointSet ds;

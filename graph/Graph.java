@@ -1,4 +1,4 @@
-package ds_algo_study.dijkstra_mst;
+package ds_algo_study.graph;
 
 import java.util.ArrayList;
 import java.util.List;
