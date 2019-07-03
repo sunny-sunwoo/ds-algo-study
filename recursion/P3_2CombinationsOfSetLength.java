@@ -54,8 +54,12 @@ public class P3_2CombinationsOfSetLength {
     
     /**
      * Better solution with backtracking.
-     * by returning a placeholder when the condition is satisfied,
+     * by returning a "placeholder" when the condition is satisfied,
      * decide to include or exclude for each time.
+     * 
+     * T.C: same with combinations in worst case, which is O(n * 2^n)
+     * but average case is improved.
+     * 
      * @param nums
      * @param n
      * @return
@@ -66,8 +70,8 @@ public class P3_2CombinationsOfSetLength {
     
     
     private static List<List<Integer>> backtrack(int[] nums, int setLength, int currLength, int idx) {
-        if (setLength < currLength) return new ArrayList<List<Integer>>();
-        if (idx == nums.length && setLength > currLength) return new ArrayList<List<Integer>>();
+        if (setLength < currLength) return new ArrayList<>();
+        if (idx == nums.length && setLength > currLength) return new ArrayList<>();
         if (setLength == currLength) {
             List<List<Integer>> result = new ArrayList<>();
             result.add(new ArrayList<>());
