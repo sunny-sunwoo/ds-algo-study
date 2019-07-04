@@ -15,9 +15,17 @@ import org.apache.commons.lang3.tuple.Pair;
  * 2. find the k closest elements from the target using binary search(logK)
  * 
  * Helper Method
- * 1. check prevResult size matches k -> if found.
- * 2. check l/r bounds -> if it's not valid, find from the other side.
- * 3. binary search -> set l/r bounds, compare l/r diff.
+ * 1. check if found from prevResult.
+ *      - k == size
+ *      - k == size + 1 : when we need only 1 more. (*optimization*)
+ *      
+ * 2. check l/r bounds 
+ *      -> if either l/r is not valid, rt the result from the other side.
+ * 
+ * 3. binary search 
+ *      - set l/r bounds checking the array idx bound.
+ *      - set l/r diff.
+ *      - return a new pair depending on the comparison btw l/r diff.
  * 
  * Note. nums[target - k/2] < nums[target + k/2] 
  *  => it means, elems at idx (target - k/2) ~ (target) are included in the k closest elems.
