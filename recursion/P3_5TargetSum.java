@@ -23,6 +23,15 @@ import java.util.List;
  *      3. remove the last
  *      4. recurse: same target and next ptr.
  *      
+ * [Time/Space]
+ * time complexity: O(2^n * n)
+ *   height: n (target),
+ *   branching factor: 2,
+ *   work per call: n (copy path to the result)
+ *   
+ * space complexity: O(n)
+ *   
+ *      
  * @author Sunny Park
  *
  */

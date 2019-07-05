@@ -18,6 +18,14 @@ import java.util.List;
  * Focus on including a character from "either s1 or s2."
  * -> each pos can be filled with s1 or s2. 
  * 
+ * [Time/Space]
+ * time complexity: O(2^n * n)
+ *   height: n (s1 + s2),
+ *   branching factor: 2,
+ *   work per call: n (generate string for every base case)
+ *   
+ * space complexity: O(n), n = s1 + s2. (height)
+ * 
  * @author Sunny Park
  *
  */
