@@ -37,6 +37,25 @@ import java.util.Set;
  * - Space complexity: O(n^n * n)
  *      Worst case: have to store every combination.
  *      
+ * Sol) 
+ * 1. base case: 
+ *      - path size == n -> add path to the result
+ *      - row exceeds n. -> rt.
+ *      
+ * 2. logic
+ *      - iterate through the availableCols. 
+ *        *note* availableCols.toArray(new Integer[]{}) <- to avoid concurrentModificationException
+ *        1) check diagonal. -> invalid: continue
+ *        2) remove from availableCols.
+ *        3) update diagonals (left: row - col, right: row + col)
+ *        
+ *        4) recurse on next call. (row + 1)
+ *        
+ *        5) backtrack availableCols, leftDiag, rightDiag.
+ *        
+ *     - recurse on next call. 
+ *       bc/ curr row can be skipped.
+ *      
  * @author Sunny Park
  * 
  */
