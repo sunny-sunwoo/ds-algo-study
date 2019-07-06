@@ -5,10 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 
+ * [Knapsack 0-1]
  * Q. Given a list of items with values and weights, as well as a max weight,
  * find the max value you can generate from items,
  * where the sum of the weights is less than or equal to the max.
+ * 
+ * You cannot break an item, either pick the complete item, or don't pick it. 
+ * (0-1 property)
  * 
  * [Approach1] Recursion (4 iterations)
  * 
@@ -28,8 +31,42 @@ import java.util.List;
  * Iter-4) Optimize - Result object to hold the value.
  * To avoid recomputing the values every time, hold the value.
  * 
- * [Approach2] Dynamic Programming
+ *  - time complexity: O(2^n * n)
+ *  - space complexity: O(n)
  * 
+ * [Approach2] Dynamic Programming
+ * Memoization by storing previous computation
+ * while putting max value within the restriction.
+ * => to decrease time complexity.
+ * => (note) make a table of weight(col)-item(row) with an example item list.
+ * 
+ * At each cell, 2 choices are available.
+ * 1) don't choose the curr item. 
+ * 2) choose the curr item. (if the weight restriction allows the curr item.)
+ *    == choice before curr item at (weight - curr weight) (bc/ curr weight affects.)
+ *    
+ * Code
+ * 1) int[][] cache. with (rescriction + 1) cols, (item num + 1) rows.
+ * 2) iterate through the 2d arr. 
+ *    each time I add more items, I interate the restriction from 0 to the end.
+ *    
+ *    - restriction 0 or item 0 => continue. 
+ *    - if curr item's weight <= restriction 'w', 
+ *      take max(don't choose (prev value at w), choose (prev value at the w - curr weight))
+ *    - else, take the prev value at w.
+ *    
+ *    
+ * Recurrence relation
+ * i = item, the row we are in.
+ * w = maxWeight, the col we are in.
+ * 
+ * cache[i][w] => if (wi <= w), max(cache[i - 1][w], cache[i - 1][w - wi] + vi)
+ *             => otherwise, cache[i - 1][w]
+ *               
+ * if (i = 0 or w = 0) cache[i][w] = 0. 
+ * 
+ * 
+ * @see <a href="https://www.geeksforgeeks.org/knapsack-problem"></a>
  * @author Sunny Park
  *
  */
@@ -138,7 +175,7 @@ public class P3_3Knapsack {
     }
     
     private static boolean isValidWeight(List<Item> tmp, int maxWeight) {
-        return tmp.stream().mapToInt(i -> i.weight).sum() < 10;
+        return tmp.stream().mapToInt(i -> i.weight).sum() < maxWeight;
     }
     
     /**
@@ -223,6 +260,22 @@ public class P3_3Knapsack {
         }
     }
     
+    public static int knapsack_dp(List<Item> input, int restriction) {
+        int[][] cache = new int[input.size() + 1][restriction + 1];
+        for (int i = 0; i <= input.size(); i++) {
+            for (int w = 0; w <= restriction; w++) {
+                if (i == 0 || w == 0) continue;
+                Item curr = input.get(i - 1);
+                if (curr.weight <= w) {
+                    cache[i][w] = Math.max(cache[i - 1][w], cache[i - 1][w - curr.weight] + curr.value);
+                } else {
+                    cache[i][w] = cache[i - 1][w];
+                }
+            }
+        }
+        return cache[input.size()][restriction];
+    }
+    
     
     public static void main(String[] args) {
         List<Item> input = new ArrayList<>();
@@ -231,5 +284,7 @@ public class P3_3Knapsack {
         System.out.println(knapsack_optimize1(input, 10));
         System.out.println(knapsack_optimize2(input, 10));
         System.out.println(knapsack_optimize3(input, 10));
+        
+        System.out.println(knapsack_dp(input, 10));
     }
 }
