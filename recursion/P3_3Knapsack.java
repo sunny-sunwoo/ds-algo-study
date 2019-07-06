@@ -34,6 +34,8 @@ import java.util.List;
  *  - time complexity: O(2^n * n)
  *  - space complexity: O(n)
  * 
+ * 
+ * 
  * [Approach2] Dynamic Programming
  * Memoization by storing previous computation
  * while putting max value within the restriction.
@@ -45,7 +47,7 @@ import java.util.List;
  * 2) choose the curr item. (if the weight restriction allows the curr item.)
  *    == choice before curr item at (weight - curr weight) (bc/ curr weight affects.)
  *    
- * Code
+ * <Code logic>
  * 1) int[][] cache. with (rescriction + 1) cols, (item num + 1) rows.
  * 2) iterate through the 2d arr. 
  *    each time I add more items, I interate the restriction from 0 to the end.
@@ -56,7 +58,7 @@ import java.util.List;
  *    - else, take the prev value at w.
  *    
  *    
- * Recurrence relation
+ * <Recurrence relation>
  * i = item, the row we are in.
  * w = maxWeight, the col we are in.
  * 
@@ -65,6 +67,11 @@ import java.util.List;
  *               
  * if (i = 0 or w = 0) cache[i][w] = 0. 
  * 
+ * <Time/Space Analysis>
+ * n = input size, m = restriction.
+ * Time complexity: O(nm)
+ * Space complexity: O(nm)
+ * => Pseudo-Polynomial, bc/ it's bounded by the restriction, not input-dependent.
  * 
  * @see <a href="https://www.geeksforgeeks.org/knapsack-problem"></a>
  * @author Sunny Park
