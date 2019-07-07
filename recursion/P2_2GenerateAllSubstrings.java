@@ -3,6 +3,20 @@ package ds_algo_study.recursion;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Q. Generate all substrings.
+ * 
+ * [Approach] Nested for loop -> Recursion
+ * 1. move right pointer from the given left pointer.
+ * 2. increment the left pointer.
+ * 
+ * Time Complexity: O(n^3) |  cubic time: outer loop, inner loop, substring
+ * Space Complexity: O(n)  |  absolute maximum depth.
+ * 
+ * 
+ * @author Sunny Park
+ *
+ */
 public class P2_2GenerateAllSubstrings {
     public static List<String> generateAllSubstrings(String s) {
         List<String> result = new ArrayList<>();
