@@ -182,7 +182,7 @@ public class P3_3Knapsack {
     }
     
     private static boolean isValidWeight(List<Item> tmp, int maxWeight) {
-        return tmp.stream().mapToInt(i -> i.weight).sum() < maxWeight;
+        return tmp.stream().mapToInt(i -> i.weight).sum() <= maxWeight;
     }
     
     /**
@@ -284,14 +284,15 @@ public class P3_3Knapsack {
     }
     
     
+    
     public static void main(String[] args) {
         List<Item> input = new ArrayList<>();
-        input.addAll(Arrays.asList(new Item(10, 7), new Item(3, 9), new Item(6, 5), new Item(8, 2)));
-        System.out.println(knapsack_bruteforce(input, 10));
-        System.out.println(knapsack_optimize1(input, 10));
-        System.out.println(knapsack_optimize2(input, 10));
-        System.out.println(knapsack_optimize3(input, 10));
-        
-        System.out.println(knapsack_dp(input, 10));
+//        input.addAll(Arrays.asList(new Item(10, 7), new Item(3, 9), new Item(6, 5), new Item(8, 2)));
+        input.addAll(Arrays.asList(new Item(5, 2), new Item(3, 7), new Item(2, 5), new Item(6, 3)));
+        System.out.println(knapsack_bruteforce(input, 6));
+        System.out.println(knapsack_optimize1(input, 6));
+        System.out.println(knapsack_optimize2(input, 6));
+        System.out.println(knapsack_optimize3(input, 6));
+        System.out.println(knapsack_dp(input, 6));
     }
 }
