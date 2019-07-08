@@ -17,7 +17,7 @@ import java.util.List;
  * @author Sunny Park
  *
  */
-public class P2_2GenerateAllSubstrings {
+public class P1_2GenerateAllSubstrings {
     public static List<String> generateAllSubstrings(String s) {
         List<String> result = new ArrayList<>();
         iterateFirstChar(result, s, 0);
