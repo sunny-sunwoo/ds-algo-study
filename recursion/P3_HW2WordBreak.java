@@ -25,6 +25,11 @@ import com.google.common.base.Joiner;
  *       -> add to tmp list
  *       -> recurse on the next call (with updated remainder)
  *       -> remove from the tmp list(revert to see different combination including the curr)
+ *       
+ *  
+ * [Time/Space]
+ * - Time: O(n^n), which is equivalent to O(n!)
+ *      branching factor: n, height: n (n = length of string s)
  * 
  * @author Sunny Park
  *

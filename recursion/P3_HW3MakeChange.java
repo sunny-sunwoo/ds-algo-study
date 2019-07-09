@@ -26,6 +26,12 @@ package ds_algo_study.recursion;
  *    - rt min(exclude, include + 1).
  *    
  * 
+ * [Space/Time]
+ * - Time: O(2 ^ n)
+ *   branching factor: 2, height: n(amt)
+ *   
+ * - Space: O(n) // depth of the recursion
+ * 
  * @author Sunny Park
  *
  */
@@ -42,7 +48,7 @@ public class P3_HW3MakeChange {
         int exclude = makeChange(coins, remainder, ptr + 1);
         
         if (include < 0) return exclude; // include should be checked first!!
-        if (exclude < 0) return include + 1; // should add up 1 later!
+        if (exclude < 0) return include + 1; // should add up 1 later! to add 'self'
         
         return Math.min(include + 1, exclude);
     }
