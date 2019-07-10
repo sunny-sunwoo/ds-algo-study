@@ -43,15 +43,15 @@ public class RankFromStream {
             node.leftSize++;
             if (node.left == null) {
                 node.left = new RankNode(x);
-            } else {
-                insert(x, node.left);
-            }
+                return;
+            } 
+            insert(x, node.left);
         } else {
             if (node.right == null) {
                 node.right = new RankNode(x);
-            } else {
-                insert(x, node.right);
-            }
+                return;
+            } 
+            insert(x, node.right);
         }
     }
     
