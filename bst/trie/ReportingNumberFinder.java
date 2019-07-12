@@ -26,7 +26,7 @@ public class ReportingNumberFinder {
             String mgrId = pair.getLeft();
             String empId = pair.getRight();
             
-            Employee manager = empById.getOrDefault(mgrID, new Employee(mgrId));
+            Employee manager = empById.getOrDefault(mgrId, new Employee(mgrId));
             Employee employee = empById.getOrDefault(empId, new Employee(empId));
             
             manager.addMember(employee);
@@ -35,7 +35,7 @@ public class ReportingNumberFinder {
         
         Map<String, Integer> result = new HashMap<>();
         for (Employee e : empById.values()) {
-            result.put(e.getId, e.getReportingNumber());
+            result.put(e.getId(), e.getReportingNumber());
         }
         return result;
     }
