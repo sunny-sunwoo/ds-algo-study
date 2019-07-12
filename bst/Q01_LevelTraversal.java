@@ -21,7 +21,7 @@ import com.google.common.base.Joiner;
  * @author Sunny Park
  *
  */
-public class Q01_LevelPrinting {
+public class Q01_LevelTraversal {
     public static List<List<Integer>> levelBST(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
