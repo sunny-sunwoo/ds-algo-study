@@ -31,7 +31,7 @@ import java.util.TreeMap;
  * @author Sunny Park
  *
  */
-public class Q3NerdManager {
+public class Q03_NerdManager {
     private final NavigableMap<Integer, Integer> nerdMap = new TreeMap<>();
     
     public int register(int jScore, int pScore) {
