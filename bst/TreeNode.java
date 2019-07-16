@@ -3,13 +3,17 @@ package ds_algo_study.bst;
 
 public class TreeNode {
     static int cnt = 1;
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
     
-    TreeNode() {
+    public TreeNode() {
         this.val = cnt;
         cnt++;
+    }
+    
+    public TreeNode(int v) {
+        this.val = v;
     }
     
     @Override
