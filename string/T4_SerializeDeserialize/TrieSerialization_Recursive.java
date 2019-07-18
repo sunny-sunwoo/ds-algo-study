@@ -1,6 +1,8 @@
 package ds_algo_study.string.T4_SerializeDeserialize;
 
-import java.awt.font.NumericShaper.Range;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -53,6 +55,10 @@ public class TrieSerialization_Recursive {
     }
     
     public static String serialize(TrieNode node) {
+        return transformToString(checkNotNull(node));
+    }
+    
+    private static String transformToString(TrieNode node) {
         StringBuilder sb = new StringBuilder(node.val);
         if (node.children.isEmpty()) {
             return sb.toString();
@@ -65,6 +71,11 @@ public class TrieSerialization_Recursive {
     }
     
     public static TrieNode deserialize(String str) {
+        validate(str);
+        return buildTree(str);
+    }
+    
+    private static TrieNode buildTree(String str) {
         if (!str.contains("{")) {
             return new TrieNode(str);
         }
@@ -73,7 +84,7 @@ public class TrieSerialization_Recursive {
         return new TrieNode(str.substring(0, left))
                 .setChildren(split(str.substring(left + 1, right))
                         .stream()
-                        .map(s -> deserialize(s))
+                        .map(s -> buildTree(s))
                         .collect(Collectors.toList()));
     }
     
@@ -102,6 +113,15 @@ public class TrieSerialization_Recursive {
         return ranges.stream()
                 .map((range) -> str.substring(range.low, range.high))
                 .collect(Collectors.toList());
+    }
+    
+    private static void validate(String str) {
+        int pBalance = 0;
+        for (char c : checkNotNull(str).toCharArray()) {
+            if (c == '{') pBalance++;
+            else if (c == '}') pBalance--;
+        }
+        checkArgument(pBalance == 0);
     }
     
     private static class Range {
