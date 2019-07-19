@@ -75,7 +75,50 @@ public class PartialMatch {
         }
         return lps;
     }
-     
+    
+//    //prac
+//    public static int strStr(String hay, String needle) {
+//        int m = hay.length(), n = needle.length();
+//        int i = 0, j = 0;
+//        int[] lps = getLPS(needle);
+//        
+//        while (i < m) {
+//            if (hay.charAt(i) == needle.charAt(j)) {
+//                i++;
+//                j++;
+//                if (j == n) {
+//                    return i - j;
+//                }
+//            } else {
+//                if (j != 0) {
+//                    j = lps[j - 1];
+//                } else { // j == 0
+//                    i++;
+//                }
+//            }
+//        }
+//        return -1;
+//    }
+//    
+//    private static int[] getLPS(String str) {
+//        int[] lps = new int[str.length()];
+//        int i = 0;
+//        for (int j = 1; j < str.length(); ) {
+//            if (str.charAt(i) == str.charAt(j)) {
+//                i++;
+//                lps[j] = i;
+//                j++;
+//            } else {
+//                if (i != 0) {
+//                    i = lps[i - 1];
+//                } else {
+//                    lps[j] = 0;
+//                    j++;
+//                }
+//            }
+//        }
+//        return lps;
+//    }
      public static void main(String[] args) {
          String haystack = "abcdabcrabcdabcf";
          String needle = "abcdabcf";
