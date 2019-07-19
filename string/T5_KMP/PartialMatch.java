@@ -79,7 +79,7 @@ public class PartialMatch {
      public static void main(String[] args) {
          String haystack = "abcdabcrabcdabcf";
          String needle = "abcdabcf";
-         System.out.println(Arrays.toString(getLPS(needle)));    
+         System.out.println("check  " + Arrays.toString(getLPS("abbbba")));    
          System.out.println(strStr(haystack, needle)); // expected: 8
      }
      
