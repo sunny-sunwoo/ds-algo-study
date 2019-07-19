@@ -1,6 +1,8 @@
 package ds_algo_study.string.T5_KMP;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.google.common.base.Strings;
 
@@ -68,10 +70,71 @@ public class RepeatingSubstring {
         return lps;
     }
     
+    /**
+     * Q2) find the longest candidate(length) for prefix/suffix
+     * 1. build lps array
+     * 2. find the max elem (which means the max length of the candidate.)
+     * @param s
+     * @return
+     */
+    public static int findLongestCandidate(String s) {
+        int[] lps = buildLps(s);
+        return getMax(lps);
+    }
+    
+    private static int[] buildLps(String s) {
+        int[] lps = new int[s.length()];
+        int i = 0;
+        for (int j = 1; j < s.length(); ) {
+            if(s.charAt(i) == s.charAt(j)) {
+                i++;
+                lps[j] = i;
+                j++;
+            } else {
+                if(i != 0) {
+                    i = lps[i - 1];
+                } else { // i == 0
+                    lps[j] = 0;
+                    j++;
+                }
+            }
+        }
+        return lps;
+    }
+    
+    private static int getMax(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        for (int num : arr) {
+            max = Math.max(max, num);
+        }
+        return max;
+    }
+    
+    /**
+     * abcdabcdabcd
+     * 000012345678
+     *    ^   ^    
+     * @param s
+     * @return
+     */
+    public static Set<String> findAllCandidates(String s) {
+        Set<String> result = new HashSet<>();
+        int[] lps = buildLps(s);
+        int len = lps[s.length() - 1];
+        
+        while (len > 0) {
+            result.add(s.substring(0, len));
+            len = lps[len - 1];
+        }
+        return result;
+    }
+    
     public static void main(String[] args) {
         String s = "abababab";
         System.out.println(Arrays.toString(getLps(s)));
         System.out.println(validatePattern(s));
+        System.out.println(findLongestCandidate("abcdabcddefg"));
+        System.out.println(findAllCandidates("abcdabcdabcd"));
     }
 
 }
