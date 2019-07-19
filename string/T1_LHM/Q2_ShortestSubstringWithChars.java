@@ -15,6 +15,7 @@ import com.google.common.primitives.Chars;
 /**
  * Q. Given a string and characters,
  * find the length of shortest substring with all characters.
+ * cf) LC Minimum Window Substring. // return the substring! not length.
  * 
  * e.g. "aaabctrrak" chars=[c,t,a]
  *         ^ ^^
@@ -59,9 +60,10 @@ public class Q2_ShortestSubstringWithChars {
     }
     
     public static void main(String[] args) {
-        char[] chars = {'c', 't', 'a', 'k'};
-        String s = "aaabctrrrrrak";
+        char[] chars = {'B','A','C'};
+//        String s = "aaabctrrrrrak";
 //        String s = "ctttttakc";
+        String s = "ADOBECODEBANC";
         System.out.println(findShortestSubstring(s, chars));
     }
 }
