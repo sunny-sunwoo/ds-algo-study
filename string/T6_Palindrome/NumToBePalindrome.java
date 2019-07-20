@@ -2,7 +2,7 @@ package ds_algo_study.string.T6_Palindrome;
 
 /**
  * Q. Given a string,
- * chars can be added in front of the string only.
+ * chars can be added "in front of" the string only.
  * how many chars do we need for the str to be a palindrome?
  * 
  * [Approach] use lps arr!
