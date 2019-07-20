@@ -52,7 +52,7 @@ public class PalindromePairs {
             for (int j = 0; j < curr.length(); j++) {
                 String prefix = curr.substring(0, j); // 0, curr.length() - j 
                 String suffix = curr.substring(j); // curr.length() - j, for the same order w/LC
-                
+                // System.out.println(prefix + " : " + suffix);
                 if (isPalindrome(prefix)) {
                     Integer revSuffixIdx = cache.get(new StringBuilder(suffix).reverse().toString());
                     if (revSuffixIdx != null && revSuffixIdx != i) {
@@ -84,9 +84,42 @@ public class PalindromePairs {
         return new StringBuilder(s).reverse().toString().equals(s);
     }
     
+    /**
+     * Leetcode solution - to cover {"a",""} case. 
+     * use set! & ending point check.
+     */
+//    public List<List<Integer>> palindromePairs(String[] words) {
+//        Set<List<Integer>> result = new HashSet<>();
+//        Map<String, Integer> cache = populate(words);
+//        
+//        for (int i = 0; i < words.length; i++) {
+//            String word = words[i];
+//            for (int j = 0; j <= word.length(); j++) {
+//                String prefix = word.substring(0, word.length() - j);
+//                String suffix = word.substring(word.length() - j);
+//                
+//                if (isPalindrome(prefix)) {
+//                    Integer revSuffixIdx = cache.get(new StringBuilder(suffix).reverse().toString());
+//                    if (revSuffixIdx != null && revSuffixIdx.intValue() != i) {
+//                        result.add(Arrays.asList(revSuffixIdx.intValue(), i));
+//                    }
+//                }
+//                
+//                if (isPalindrome(suffix)) {
+//                    Integer revPrefixIdx = cache.get(new StringBuilder(prefix).reverse().toString());
+//                    if (revPrefixIdx != null && revPrefixIdx.intValue() != i) {
+//                        result.add(Arrays.asList(i, revPrefixIdx.intValue()));
+//                    }
+//                }
+//            }
+//        }
+//        return result.stream().collect(Collectors.toList());
+//    }
+    
     public static void main(String[] args) {
-        String[] strs = {"bat","tab","cat"};
-//        String[] strs = {"abcd","dcba","lls","s","sssll"};
+//        String[] strs = {"bat","tab","cat"};
+//        String[] strs = {"a",""};
+        String[] strs = {"abcd","dcba","lls","s","sssll"};
         System.out.println(findPalindromePairs(strs));
     }
 }
