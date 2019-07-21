@@ -29,15 +29,15 @@ There are 2 Data type in java:
 
 + **Before Java6** <br/>
     PDT) Quick sort -> Insertion sort <br/>
-    Obj) Merge sort -> Insertion sort <br/>
+    OBJ) Merge sort -> Insertion sort <br/>
     
     as we call recursive calls and the boundary gets smaller, 
     Java translates the sort into the insertion sort. <br/>
     bc/ when elems are almost sorted, IS is fast & best!! 
     
 + **After Java7** <br/>
-    PDT: Dual pivot quick sort (using 2 pivots) <br/>
-    Obj: Tim sort (similar to ms + is) // linear time in best case. <br/>
+    PDT) Dual pivot quick sort (using 2 pivots) <br/>
+    OBJ) Tim sort (similar to ms + is) // linear time in best case. <br/>
 
 
 

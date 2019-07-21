@@ -1,5 +1,7 @@
 package ds_algo_study.sorting;
 
+import java.util.Arrays;
+
 /**
  * Quick Sort: Remember Pivot & Partition!
  *  - by Tony Hoare(who invented "null")
@@ -25,12 +27,46 @@ package ds_algo_study.sorting;
  *       
  *    2. random value OR pseudo median(median of 3 elems: first, mid, last)
  *       with this improvement, Quicksort can achieve O(NlogN) time.
- *       => *NOTE* Worst case is still O(n^2)
- *      
+ *       => *NOTE* Worst case is still O(n^2) 
  *  
  * @author Sunny Park
  *
  */
 public class Type05_QuickSort {
-
+    public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
+    }
+    
+    private static void quickSort(int[] arr, int lo, int hi) {
+        if (lo > hi) return;
+        int pivot = doPartition(arr, lo, hi);
+        quickSort(arr, lo, pivot - 1);
+        quickSort(arr, pivot + 1, hi);
+    }
+    
+    private static int doPartition(int[] arr, int lo, int hi) {
+        int left = lo;
+        int pivot = arr[hi];
+        
+        for (int i = lo; i < hi; i++) {
+            if (arr[i] <= pivot) {
+                swap(arr, left++, i);
+            }
+        }
+        swap(arr, left, hi);
+        return left;
+    }
+    
+    private static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6, 7, 1, 2}; 
+        quickSort(arr);
+    }
+    
 }
