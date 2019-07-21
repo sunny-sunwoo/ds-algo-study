@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Insertion sort: Dividing line!
  * - Based on the dividing line,
- *   left side (sorted) /  DL / right side(unsorted).
+ *   left side (sorted) / DL / right side(unsorted).
  *   => left side is sorted within themselves!
  *
  * - no swap.
