@@ -7,7 +7,7 @@ However, often IS performs better than the other two
 bc/ it may require less # of comparisons depending on the input values(e.g. almost sorted arr)
 & uses copying instead of swapping! (NO SWAP in IS)
 
-+ **BS < SS**       - less $ of swaps.
++ **BS < SS**       - less # of swaps.
   **BS, SS < IS**   - less # of comparions. - no swap. only copy!
 
 *** 
@@ -44,6 +44,12 @@ There are 2 Data type in java:
 + **After Java7** <br/>
     PDT) Dual pivot quick sort (using 2 pivots) <br/>
     OBJ) Tim sort (similar to ms + is) // linear time in best case. <br/>
+    
++ Dual pivot quick sort 
+ - can achive shorter height (smaller depth)
+ - then why not, 3 pivots or 4 pivots? 
+    -> sorting speed doesn't get faster proportionally to pivot nums.
+    bc/ there happens additional cost for setting several pivots and partitioning.
 
 
 ***
