@@ -43,8 +43,7 @@ There are 2 Data type in java:
 ***
 
 ### Sorting Algorithms
-| Algorithm     |               Time complexity             |
-|               | Best        | Average       | Worst       |
+| Algorithm     | Best        | Average       | Worst       |
 | ------------- |:-------:    |:----------:   |:---------   |
 |Selection Sort | Ω(n^2)      | θ(n^2)        | O(n^2)      |
 |Bubble Sort    | Ω(n)        | θ(n^2)        | O(n^2)      |
