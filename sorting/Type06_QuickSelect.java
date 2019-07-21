@@ -3,6 +3,13 @@ package ds_algo_study.sorting;
 /**
  * Quick Select: what's Nth number?
  * - no need to sort all.
+ * - Pick a candidate part & ignore the rest part where we can't find the answer. (similar to bst.)
+ * 
+ * e.g. [4,3,1,2][5][7,10,6,12], we are looking for 7(6th number).
+ *    - ignore [4,3,1,2]
+ *    
+ * - traverse the half in ideal. -> n + 1/2n + 1/4n + ...  = 2n.
+ * - so, the TC is LINEAR!
  * 
  * [Approach] 
  * 1. do partition.

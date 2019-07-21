@@ -19,6 +19,12 @@ but it's expensive to merge these sorted left & right sub arr.
 + In **Quick sort**, dividing the original problem into sub-problems(partitioning) is 
 more complicated and expensive whereas combining the result from sub-problems together is easy.
 
++ Why do we use quick sort for pdt sorting instead of using merge sort?
+bc/ elems can be sorted when they are placed on the memory.
+quick sort is better in terms of space complexity bc/ ms needs an additional result holder.
+=> initial cost: Merge sort > Quick sort > Insertion sort
+=> So, various languages set own benchmarks and do the insertion sort if the size is less than a specific threshold.
+
 *** 
 
 ### Sorting in Java
@@ -44,7 +50,7 @@ There are 2 Data type in java:
 
 ### Sorting Algorithms
 | Algorithm     | Best        | Average       | Worst       |
-| ------------- |:-------:    |:----------:   |:---------   |
+| ------------- |:-------:    |:----------:   |:--------- : |
 |Selection Sort | Ω(n^2)      | θ(n^2)        | O(n^2)      |
 |Bubble Sort    | Ω(n)        | θ(n^2)        | O(n^2)      |
 |Insertion Sort | Ω(n)        | θ(n^2)        | O(n^2)      |
