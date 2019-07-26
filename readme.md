@@ -39,12 +39,9 @@
 
 + Backtracking
 
-
 + String
 
-
 + Math / Bit Opr
-
 
 + Fenwick Tree
 
