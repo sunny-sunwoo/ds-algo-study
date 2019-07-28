@@ -16,7 +16,7 @@ import java.util.Set;
  * @author Sunny Park
  *
  */
-public class Q6_NumberOfIslands {
+public class Q06_NumberOfIslands {
     public static void main(String[] args) {
         int[][] grid = {{1,1,1,1,0}, {1,1,0,1,0}, {1,0,1,0,0}, {0,0,0,1,1}};
         System.out.println(numOfIslands(grid));

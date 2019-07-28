@@ -25,7 +25,7 @@ import java.util.stream.IntStream;
  * @author Sunny Park
  *
  */
-public class Q1_LongestContinuousIncreasingSequence {
+public class Q01_LongestContinuousIncreasingSequence {
     public static int lcis(int[] arr) {
         Set<Integer> set = IntStream.of(arr).boxed().collect(Collectors.toSet());
         int maxCount = 1;
