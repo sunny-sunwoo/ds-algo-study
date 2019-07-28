@@ -67,15 +67,24 @@ public class Q07_ArrayHooper {
             if (i > last) {
                 path.add(visited);
                 last = curr;
+                if (last == arr.length - 1) {
+                    path.add(last);
+                    break;
+                }
             } 
             
             if (i + arr[i] > curr) {
                 curr = i + arr[i];
                 visited = i;
             }
+            System.out.println("=========");
+            System.out.println("i: " + i);
+            System.out.println("curr: " + curr);
+            System.out.println("last: " + last);
+            System.out.println("visited: " + visited);
+            System.out.println("path: " + path);
         }
-        System.out.println("check - " + last);
-        path.add(arr.length - 1);
+        
         return path;
     }
     
