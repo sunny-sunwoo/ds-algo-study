@@ -81,7 +81,7 @@ public class Q03_NerdManager {
     }
     
     public static void main(String[] args) {
-        Q3NerdManager manager = new Q3NerdManager();
+        Q03_NerdManager manager = new Q03_NerdManager();
         System.out.println(manager.register(4, 3)); // 1
         System.out.println(manager.register(2, 5)); // 2
         System.out.println(manager.register(1, 8)); // 3
