@@ -3,6 +3,7 @@ package ds_algo_study.dynamicProgramming;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.Arrays;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
@@ -69,6 +70,7 @@ public class Q20_WordBreak {
                 v++;
             }
         }
+        // System.out.println(Arrays.toString(valids));
         return valids[0];
     }
     
